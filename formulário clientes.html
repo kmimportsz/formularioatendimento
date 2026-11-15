@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#030407">
+<meta name="description" content="Confirme os dados do seu pedido com a K&M Imports de forma simples e segura.">
+<title>K&M Imports | Confirmação de Pedido</title>
+<style>
+:root{color-scheme:dark;--bg:#030407;--panel:#0a0e16;--panel2:#080b11;--border:#203456;--text:#f5f8ff;--muted:#9aaac1;--blue:#18477f;--blue2:#407fc6;--green:#9bd6bd;--danger:#ffaaa9}
+*,*:before,*:after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100dvh;background:radial-gradient(ellipse 75% 420px at 50% -215px,#1a4a8c66,transparent 95%),radial-gradient(circle at 0% 55%,#0f28532b,transparent 40%),radial-gradient(circle at 100% 12%,#143d7729,transparent 32%),linear-gradient(180deg,#050609,#030407 85%);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;color:var(--text);-webkit-font-smoothing:antialiased}
+button,input,textarea,select{font:inherit}button,a,input,label{-webkit-tap-highlight-color:transparent}
+.wrap{max-width:760px;margin:auto;padding:17px 15px calc(42px + env(safe-area-inset-bottom))}
+.brand{position:relative;overflow:hidden;border:1px solid #21395f;background:linear-gradient(138deg,#111927,#070b12 65%,#07090e);border-radius:26px;padding:22px 23px;margin:6px 0 15px;box-shadow:0 20px 75px #0009,inset 0 1px #ffffff12}
+.brand:after{content:"";position:absolute;width:220px;height:220px;right:-90px;top:-125px;border:1px solid #3d83ca23;border-radius:50%;box-shadow:0 0 0 30px #2556a012,0 0 0 70px #1b4e8410;pointer-events:none}
+.brandline{display:flex;align-items:center;gap:14px;position:relative;z-index:1}
+.brandmark{position:relative;display:grid;place-items:center;flex:none;width:72px;height:72px;background:linear-gradient(145deg,#14243c,#060911 74%);border:1px solid #35619a;border-radius:20px;box-shadow:0 8px 24px #0009,inset 0 1px #ffffff26;overflow:hidden}
+.brandmark:before{content:"";position:absolute;top:2px;left:7px;right:7px;height:22px;border-radius:50%;background:linear-gradient(180deg,#a7d0ff20,transparent);filter:blur(3px)}
+.brandmark strong{position:relative;font-size:23px;letter-spacing:-2px;font-weight:900;line-height:1.1}.brandmark strong em{font-style:normal;color:#75b2fc}.brandmark small{position:relative;font-size:8px;letter-spacing:.3em;color:#8ebfff;font-weight:800}
+.eyebrow{color:#87bafb;font-size:10px;letter-spacing:.2em;font-weight:850;text-transform:uppercase;margin:0 0 5px}
+.brand h1{font-weight:850;font-size:clamp(25px,6vw,34px);letter-spacing:-.055em;line-height:1.08;margin:0}.brand h1 span{color:#81b7f6}
+.brand p{position:relative;z-index:1;color:#b2c0d5;margin:16px 0 0;font-size:13px;line-height:1.7;max-width:510px}
+.brand-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.brand-badges span{color:#b0cbee;font-size:10px;font-weight:700;letter-spacing:.025em;padding:7px 10px;border-radius:999px;background:#0b1728;border:1px solid #213b5d}
+.main-card{background:linear-gradient(175deg,#0d121d,#070a10 67%);border:1px solid #223859;border-radius:26px;box-shadow:0 17px 70px #000a,inset 0 1px #ffffff10;overflow:hidden}
+.topline{height:3px;background:linear-gradient(90deg,#0b2041,#214f86,#458fe5,#163b69)}
+.content{padding:26px 27px 29px}
+.welc{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin-bottom:20px}
+.welc h2{font-size:22px;line-height:1.23;margin:0 0 8px;letter-spacing:-.045em}
+.welc p{color:var(--muted);font-size:12px;line-height:1.65;margin:0;max-width:560px}
+.shield{flex:none;background:linear-gradient(145deg,#112644,#0a1423);border:1px solid #295080;border-radius:15px;width:46px;height:46px;display:grid;place-items:center;font-size:22px;box-shadow:inset 0 1px #ffffff14}
+.steps{display:flex;gap:7px;margin-bottom:21px}
+.steps i{height:5px;background:#1b2a3f;border-radius:20px;flex:1;transition:background .2s ease}
+.steps i.active{background:linear-gradient(90deg,#173c6f,#3d84dc);box-shadow:0 0 12px #195aa244}
+.section{border:0;min-width:0;padding:0;margin:0}
+.section+.section{border-top:1px solid #1b2a40;margin-top:26px;padding-top:25px}
+.section legend{display:flex;align-items:center;gap:10px;padding:0;margin:0 0 17px;width:100%;font-size:15px;font-weight:820;letter-spacing:-.015em;flex-wrap:wrap}
+.section legend .icon{width:35px;height:35px;border:1px solid #2b4c7a;border-radius:11px;background:linear-gradient(145deg,#102543,#0b1625);display:grid;place-items:center;flex:none;font-size:16px}
+.section legend small{font-size:10px;font-weight:750;color:#80ade5;margin-left:auto;white-space:nowrap;letter-spacing:.08em}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{min-width:0}.field.full{grid-column:1/-1}
+.field>label{display:block;color:#d6e3f5;font-weight:680;font-size:12px;margin:0 0 7px}
+.req{color:#8ebeff}
+.field input{width:100%;min-width:0;min-height:51px;border-radius:13px;background:linear-gradient(180deg,#05080d,#090f19);border:1px solid #263b58;padding:12px 13px;color:#f5f9ff;outline:0;transition:border-color .18s,box-shadow .18s;box-shadow:inset 0 1px #ffffff08}
+.field input::placeholder{color:#70829d}
+.field input:focus{border-color:#4d8fd8;box-shadow:0 0 0 3px #3779c62a}
+.field input:disabled{opacity:.5}.field input[type=date]{min-width:0;color-scheme:dark}
+.help{color:var(--muted);font-size:11px;margin:6px 0 0}
+.choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.choice{cursor:pointer;position:relative;min-width:0}
+.choice input{position:absolute;opacity:0;width:1px;height:1px;top:12px;left:12px}
+.choice .choice-in{min-height:73px;height:100%;border:1px solid #263d5e;background:linear-gradient(155deg,#0c1421,#080e17);border-radius:15px;padding:13px;display:flex;align-items:center;gap:11px;transition:background .18s,border-color .18s,box-shadow .18s}
+.choice .choice-in:before{content:"";width:18px;height:18px;border-radius:50%;border:2px solid #6e88a8;flex:none;box-shadow:inset 0 0 0 4px #0b1320}
+.choice .text{min-width:0;font-size:13px;font-weight:710;line-height:1.35}
+.choice small{display:block;font-size:11px;color:var(--muted);font-weight:450;margin-top:3px}
+.choice input:checked+.choice-in{background:linear-gradient(135deg,#0f294b,#143b6c);border-color:#4e8edc;box-shadow:0 0 0 1px #3a82cf55,inset 0 1px #ffffff17}
+.choice input:checked+.choice-in:before{border-color:#85bbfa;background:#5aa1ed}
+.choice input:focus-visible+.choice-in{outline:3px solid #c1e0ff;outline-offset:3px}
+.address{margin:18px 0 0;border:1px solid #294973;border-radius:18px;background:linear-gradient(160deg,#0c192b,#080f1b);padding:18px;animation:show .24s ease-out}
+.address[hidden]{display:none!important}
+.address-h{font-size:13px;color:#b6d6fb;font-weight:750;margin:0 0 14px}
+@keyframes show{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+.privacy{margin:27px 0 17px;padding:15px;border:1px solid #203b5f;border-radius:15px;background:linear-gradient(160deg,#0b1728,#09101c);display:flex;align-items:flex-start;gap:11px;color:#b0c4df;font-size:12px;line-height:1.65}
+.privacy input{flex:none;width:20px;height:20px;margin:2px 0 0;accent-color:#397cce}.privacy strong{color:#f0f6ff}
+.button{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:53px;padding:14px 20px;border:1px solid #4382cd;border-radius:14px;background:linear-gradient(105deg,#10305a,#205da6,#357fd1);color:#fff;font-weight:810;font-size:14px;cursor:pointer;text-decoration:none;box-shadow:0 8px 26px #10427e50,inset 0 1px #ffffff20}
+.button:hover{filter:brightness(1.1)}.button:active{transform:translateY(1px)}.button:focus-visible{outline:3px solid #b8dcff;outline-offset:3px}
+.button.secondary{background:linear-gradient(180deg,#17243a,#101826);border:1px solid #345374;box-shadow:none}
+.button.ghost{background:transparent;border:1px solid #365376;box-shadow:none;color:#c2ddfb}
+.submit{width:100%;font-size:15px}
+.note{text-align:center;color:#8d9db6;font-size:11px;max-width:490px;line-height:1.7;margin:14px auto 0}
+.foot{padding:19px 19px;text-align:center;color:#8ba5c6;font-size:12px;border-top:1px solid #1c324f;background:linear-gradient(180deg,#090f1a,#080c13)}
+.foot b{color:#e4eeff;letter-spacing:.08em}.foot a{color:#96c6ff;text-decoration:none}
+footer.page{margin:18px 0 0;text-align:center;color:#8295ae;font-size:11px;line-height:1.6}
+dialog{max-width:min(650px,calc(100% - 24px));width:100%;max-height:min(88dvh,900px);overflow:auto;padding:0;color:var(--text);background:linear-gradient(180deg,#0d1422,#070b12);border:1px solid #38649e;border-radius:22px;box-shadow:0 24px 85px #000d}
+dialog::backdrop{background:#01040ae0;backdrop-filter:blur(8px)}
+.dialog-head{padding:24px 22px 12px;background:linear-gradient(120deg,#142748,#0c1526 58%,#090e16);border-bottom:1px solid #233a59}
+.dialog-head h2{font-size:22px;margin:0;letter-spacing:-.04em}.dialog-head p{color:#adbed7;font-size:12px;margin:8px 0}
+.summary{padding:3px 22px 16px}.sum-section{margin:14px 0;padding-top:13px;border-top:1px solid #23344c}
+.sum-section h3{margin:0 0 8px;font-size:13px;color:#95c5ff}
+.sum-row{display:flex;gap:15px;justify-content:space-between;align-items:baseline;padding:5px 0;font-size:12px}
+.sum-row span{color:var(--muted);flex:0 0 43%;min-width:0}.sum-row b{font-weight:670;overflow-wrap:anywhere;text-align:right;flex:1;min-width:0}
+.dialog-actions{display:flex;flex-wrap:wrap;gap:9px;padding:15px 22px 20px;border-top:1px solid #253953}
+.dialog-actions>*{flex:1;white-space:normal;min-width:145px}
+.action-note{color:var(--muted);font-size:12px;margin:0 22px 18px;line-height:1.6}
+#feedback{color:var(--green);font-size:12px;font-weight:650;min-height:18px;margin:0 22px 16px}
+@media(max-width:560px){.wrap{padding:13px 10px 30px}.content{padding:21px 15px 23px}.brand{padding:19px}.brandmark{width:62px;height:62px;border-radius:18px}.brandmark strong{font-size:20px}.brand h1{font-size:26px}.brandline{gap:11px}.grid{grid-template-columns:1fr}.field.full{grid-column:1}.choice-grid{gap:9px}.choice .choice-in{padding:10px;min-height:72px}.choice .text{font-size:12px}.choice small{font-size:10px}.shield{display:none}.address{padding:14px}.welc h2{font-size:20px}.section legend{font-size:14px}.dialog-actions>*{flex-basis:100%}.sum-row{font-size:12px}}
+@media(max-width:355px){.choice-grid{grid-template-columns:1fr}.choice .choice-in{min-height:57px}.brand h1{font-size:24px}.brandmark{width:56px;height:56px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="brand">
+  <div class="brandline">
+    <div class="brandmark" aria-label="K&M Imports"><div><strong>K<em>&</em>M</strong><small>IMPORTS</small></div></div>
+    <div><div class="eyebrow">Atendimento exclusivo</div><h1>Confirmação de <span>pedido</span></h1></div>
+  </div>
+  <p>Estamos cuidando dos detalhes do seu pedido. Confira suas informações com tranquilidade para que nosso atendimento seja rápido e preciso.</p>
+  <div class="brand-badges"><span>✦ Atendimento personalizado</span><span>✓ Revise antes de enviar</span></div>
+</header>
+<article class="main-card">
+<div class="topline" aria-hidden="true"></div>
+<div class="content">
+<div class="welc"><div><h2>Seus dados, tudo certinho.</h2><p>Preencha as quatro seções. No final, você poderá conferir as informações antes de abrir o WhatsApp.</p></div><div class="shield" aria-hidden="true">✦</div></div>
+<div class="steps" aria-hidden="true"><i class="active"></i><i></i><i></i><i></i></div>
+<form id="requestForm" novalidate>
+          <fieldset class="section" data-section="0">
+            <legend><span class="icon">👤</span> Dados do cliente <small>01 / 04</small></legend>
+            <div class="grid">
+              <div class="field full"><label for="nome">Nome e sobrenome <span class="req">*</span></label><input id="nome" name="nome" type="text" autocomplete="name" placeholder="Ex.: João Silva" required maxlength="100"></div>
+              <div class="field"><label for="telefone">Telefone para contato <span class="req">*</span></label><input id="telefone" name="telefone" type="tel" autocomplete="tel-national" inputmode="tel" placeholder="(11) 99999-9999" required maxlength="16"><p class="help">Com DDD.</p></div>
+              <div class="field"><label for="data">Data da compra <span class="req">*</span></label><input id="data" name="data" type="date" required></div>
+            </div>
+          </fieldset>
+
+          <fieldset class="section" data-section="1">
+            <legend><span class="icon">📦</span> Informações do produto <small>02 / 04</small></legend>
+            <div class="grid">
+              <div class="field full"><label for="produto">Produto / modelo <span class="req">*</span></label><input id="produto" name="produto" type="text" placeholder="Informe o produto e o modelo" required maxlength="120"></div>
+              <div class="field"><label for="sabor">Sabor ou variação</label><input id="sabor" name="sabor" type="text" placeholder="Se aplicável" maxlength="100"></div>
+              <div class="field"><label for="valor">Valor do produto <span class="req">*</span></label><input id="valor" name="valor" type="text" inputmode="decimal" autocomplete="off" placeholder="R$ 0,00" required maxlength="18"></div>
+            </div>
+          </fieldset>
+
+          <fieldset class="section" data-section="2">
+            <legend><span class="icon">🚚</span> Entrega ou retirada <small>03 / 04</small></legend>
+            <div class="choice-grid">
+              <label class="choice"><input type="radio" name="entrega" value="Motoboy" required><span class="choice-in"><span class="text">🛵 Entrega via motoboy<small>Taxa paga pelo cliente</small></span></span></label>
+              <label class="choice"><input type="radio" name="entrega" value="Retirada" required><span class="choice-in"><span class="text">📍 Retirada<small>Em local combinado</small></span></span></label>
+            </div>
+            <section id="address" class="address" hidden aria-label="Endereço para entrega" aria-live="polite">
+              <p class="address-h">📍 Endereço para entrega</p>
+              <div class="grid">
+                <div class="field"><label for="cep">CEP <span class="req">*</span></label><input id="cep" name="cep" type="text" autocomplete="postal-code" inputmode="numeric" placeholder="00000-000" maxlength="9" data-address required disabled></div>
+                <div class="field"><label for="numero">Número <span class="req">*</span></label><input id="numero" name="numero" type="text" autocomplete="address-line2" placeholder="Ex.: 123" maxlength="20" data-address required disabled></div>
+                <div class="field full"><label for="rua">Rua / avenida <span class="req">*</span></label><input id="rua" name="rua" type="text" autocomplete="address-line1" placeholder="Nome da rua ou avenida" maxlength="120" data-address required disabled></div>
+                <div class="field full"><label for="complemento">Complemento <span class="help">(opcional)</span></label><input id="complemento" name="complemento" type="text" placeholder="Apto, bloco, casa, etc." maxlength="120" data-address disabled></div>
+                <div class="field"><label for="bairro">Bairro <span class="req">*</span></label><input id="bairro" name="bairro" type="text" placeholder="Seu bairro" maxlength="100" data-address required disabled></div>
+                <div class="field"><label for="cidade">Cidade / estado <span class="req">*</span></label><input id="cidade" name="cidade" type="text" placeholder="Ex.: São Paulo / SP" maxlength="100" data-address required disabled></div>
+                <div class="field full"><label for="referencia">Ponto de referência <span class="help">(opcional)</span></label><input id="referencia" name="referencia" type="text" placeholder="Ex.: Próximo à praça" maxlength="180" data-address disabled></div>
+              </div>
+            </section>
+          </fieldset>
+
+          <fieldset class="section" data-section="3">
+            <legend><span class="icon">💳</span> Forma de pagamento <small>04 / 04</small></legend>
+            <div class="choice-grid">
+              <label class="choice"><input type="radio" name="pagamento" value="PIX" required><span class="choice-in"><span class="text">✦ PIX</span></span></label>
+              <label class="choice"><input type="radio" name="pagamento" value="Dinheiro" required><span class="choice-in"><span class="text">💵 Dinheiro</span></span></label>
+              <label class="choice"><input type="radio" name="pagamento" value="Cartão de débito" required><span class="choice-in"><span class="text">💳 Cartão de débito</span></span></label>
+              <label class="choice"><input type="radio" name="pagamento" value="Cartão de crédito" required><span class="choice-in"><span class="text">💳 Cartão de crédito</span></span></label>
+            </div>
+          </fieldset>
+
+          <label class="privacy" for="consent"><input type="checkbox" id="consent" name="consent" required><span><strong>Autorizo o compartilhamento dos dados acima com a K&amp;M Imports pelo WhatsApp.</strong><br>As informações serão usadas para atender minha solicitação. Este formulário não salva os dados em servidor.</span></label>
+          <button class="button submit" type="submit">Revisar informações <span aria-hidden="true">→</span></button>
+          <p class="note">Ao continuar, você poderá revisar os dados. O envio só será concluído quando você confirmar a mensagem no WhatsApp.</p>
+        </form>
+</div>
+<div class="foot"><b>K&amp;M IMPORTS</b><br>Compromisso e confiança em cada atendimento.<br>WhatsApp: <a href="https://wa.me/5511997981891" target="_blank" rel="noopener noreferrer">(11) 99798-1891</a></div>
+</article>
+<footer class="page">© <span id="year"></span> K&amp;M Imports · Obrigado pela preferência e pela confiança. 💙</footer>
+</main>
+<dialog id="review" aria-labelledby="reviewTitle">
+  <div class="dialog-head"><h2 id="reviewTitle">Confirme os dados do seu pedido 💙</h2><p>Confira tudo antes de compartilhar com a K&amp;M Imports. Você pode corrigir qualquer informação.</p></div>
+  <div id="summary" class="summary"></div>
+  <p class="action-note">O botão abre o WhatsApp com a mensagem pronta. Para concluir, você precisará tocar em <strong>Enviar</strong> no aplicativo.</p>
+  <div class="dialog-actions"><button type="button" class="button ghost" id="editButton">← Corrigir</button><button type="button" class="button secondary" id="copyButton">Copiar dados</button><a class="button" id="sendButton" target="_blank" rel="noopener noreferrer" href="#">Confirmar no WhatsApp ↗</a></div>
+  <p id="feedback" role="status" aria-live="polite"></p>
+</dialog>
+<script>
+'use strict';
+  const form=document.getElementById('requestForm');
+  const address=document.getElementById('address');
+  const addrInputs=[...document.querySelectorAll('[data-address]')];
+  const review=document.getElementById('review');
+  const summary=document.getElementById('summary');
+  const sendButton=document.getElementById('sendButton');
+  const feedback=document.getElementById('feedback');
+  const progress=[...document.querySelectorAll('.steps i')];
+  const sections=[...document.querySelectorAll('[data-section]')];
+  const $=id=>document.getElementById(id);
+  const digits=s=>String(s||'').replace(/\D/g,'');
+  const today=()=>{const d=new Date();return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-')};
+  $('year').textContent=String(new Date().getFullYear());
+  $('data').value=today();$('data').max=today();
+  const getRadio=name=>form.querySelector(`input[name="${name}"]:checked`)?.value||'';
+  function phoneMask(value){let v=digits(value).slice(0,11);if(v.length<=2)return v?'('+v:'';if(v.length<=6)return '('+v.slice(0,2)+') '+v.slice(2);const mid=v.length===11?7:6;return '('+v.slice(0,2)+') '+v.slice(2,mid)+'-'+v.slice(mid)}
+  $('telefone').addEventListener('input',e=>{e.target.value=phoneMask(e.target.value)});
+  $('cep').addEventListener('input',e=>{const v=digits(e.target.value).slice(0,8);e.target.value=v.length>5?v.slice(0,5)+'-'+v.slice(5):v});
+  const getAmount=value=>{const v=String(value||'').trim().replace(/\s|R\$/gi,'');if(!v)return NaN;let n;if(v.includes(',')){n=Number(v.replace(/\./g,'').replace(',','.'))}else if(/^\d+\.\d{3}(?:\.\d{3})*$/.test(v)){n=Number(v.replace(/\./g,''))}else{n=Number(v)}return Number.isFinite(n)?n:NaN};
+  const currency=n=>n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+  $('valor').addEventListener('blur',e=>{const n=getAmount(e.target.value);if(Number.isFinite(n)&&n>0&&n<=1000000)e.target.value=currency(n)});
+  function deliveryChange(){
+    const isDelivery=getRadio('entrega')==='Motoboy';
+    // Campos são exigidos apenas na entrega. Retirada não pede endereço.
+    address.hidden=!isDelivery;
+    address.style.display=isDelivery?'block':'none';
+    addrInputs.forEach(x=>{x.disabled=!isDelivery});
+    form.querySelectorAll('input[name="entrega"]').forEach(x=>x.setAttribute('aria-expanded',String(isDelivery&&x.checked)));
+    updateProgress();
+  }
+  // Eventos diretos + delegação garantem a atualização no Safari/iPhone.
+  form.querySelectorAll('input[name="entrega"]').forEach(x=>x.addEventListener('change',deliveryChange));
+  form.addEventListener('click',e=>{
+    if(e.target.closest('.choice')?.querySelector('input[name="entrega"]')){
+      requestAnimationFrame(deliveryChange);
+    }
+  });
+  function validSection(s){return [...s.querySelectorAll('input')].filter(x=>!x.disabled).every(x=>x.type==='radio'?!!getRadio(x.name):(!x.required||!!x.value.trim()))}
+  function updateProgress(){const n=sections.filter(validSection).length;progress.forEach((p,i)=>p.classList.toggle('active',i<n||i===0))}
+  form.addEventListener('input',updateProgress);form.addEventListener('change',updateProgress);
+  function validate(){
+    const nome=$('nome').value.trim();const tel=digits($('telefone').value);const amount=getAmount($('valor').value);const cep=digits($('cep').value);
+    $('nome').setCustomValidity(nome.split(/\s+/).filter(Boolean).length<2?'Informe nome e sobrenome.':'');
+    $('telefone').setCustomValidity(tel.length!==10&&tel.length!==11?'Informe o telefone com DDD (10 ou 11 dígitos).':'');
+    $('valor').setCustomValidity(!Number.isFinite(amount)||amount<=0||amount>1000000?'Informe um valor válido maior que zero.':'');
+    $('cep').setCustomValidity(getRadio('entrega')==='Motoboy'&&cep.length!==8?'Informe um CEP com 8 dígitos.':'');
+    if(!form.checkValidity()){
+      const bad=form.querySelector(':invalid');
+      if(bad){bad.scrollIntoView({behavior:'smooth',block:'center'});bad.reportValidity()}
+      return false;
+    }
+    return true;
+  }
+  function formatDate(date){if(!/^\d{4}-\d{2}-\d{2}$/.test(date))return date;const [y,m,d]=date.split('-');return `${d}/${m}/${y}`}
+  function extract(){const d=new FormData(form);const delivery=d.get('entrega')==='Motoboy';return{
+    nome:String(d.get('nome')||'').trim(),telefone:String(d.get('telefone')||''),data:formatDate(String(d.get('data')||'')),
+    produto:String(d.get('produto')||'').trim(),sabor:String(d.get('sabor')||'').trim()||'Não se aplica',valor:currency(getAmount(d.get('valor'))),
+    entrega:delivery?'Entrega via motoboy (taxa paga pelo cliente)':'Retirada em local previamente combinado',
+    rua:delivery?String(d.get('rua')||'').trim():'',numero:delivery?String(d.get('numero')||'').trim():'',
+    complemento:delivery?String(d.get('complemento')||'').trim():'',bairro:delivery?String(d.get('bairro')||'').trim():'',
+    cidade:delivery?String(d.get('cidade')||'').trim():'',cep:delivery?String(d.get('cep')||'').trim():'',
+    referencia:delivery?String(d.get('referencia')||'').trim():'',pagamento:String(d.get('pagamento')||''),delivery
+  }}
+  function makeMessage(d){const rows=[
+    '*K&M IMPORTS | DADOS DO CLIENTE* 💙','',
+    '*👤 DADOS DO CLIENTE*',`Nome e sobrenome: ${d.nome}`,`Telefone: ${d.telefone}`,`Data da compra: ${d.data}`,'',
+    '*📦 INFORMAÇÕES DO PRODUTO*',`Produto/modelo: ${d.produto}`,`Sabor/variação: ${d.sabor}`,`Valor: ${d.valor}`,'',
+    '*🚚 ENTREGA OU RETIRADA*',d.entrega
+  ];if(d.delivery)rows.push('','*📍 ENDEREÇO PARA ENTREGA*',`Rua/avenida: ${d.rua}`,`Número: ${d.numero}`,`Complemento: ${d.complemento||'Não informado'}`,`Bairro: ${d.bairro}`,`Cidade/estado: ${d.cidade}`,`CEP: ${d.cep}`,`Ponto de referência: ${d.referencia||'Não informado'}`);
+    rows.push('','*💳 FORMA DE PAGAMENTO*',d.pagamento,'','*💙 K&M Imports*','Agradecemos pela preferência e pela confiança em nossos serviços.');return rows.join('\n')}
+  function row(label,value){const r=document.createElement('div');r.className='sum-row';const s=document.createElement('span');s.textContent=label;const b=document.createElement('b');b.textContent=value;r.append(s,b);return r}
+  function block(title,rows){const sec=document.createElement('section');sec.className='sum-section';const h=document.createElement('h3');h.textContent=title;sec.append(h);rows.forEach(([k,v])=>sec.append(row(k,v)));summary.append(sec)}
+  function showReview(){const d=extract();summary.replaceChildren();block('👤 Cliente',[['Nome',d.nome],['Telefone',d.telefone],['Data da compra',d.data]]);block('📦 Produto',[['Produto/modelo',d.produto],['Sabor/variação',d.sabor],['Valor',d.valor]]);block('🚚 Recebimento',[['Modalidade',d.entrega]]);
+    if(d.delivery)block('📍 Endereço',[['Rua/avenida',d.rua],['Número',d.numero],['Complemento',d.complemento||'Não informado'],['Bairro',d.bairro],['Cidade/estado',d.cidade],['CEP',d.cep],['Referência',d.referencia||'Não informado']]);
+    block('💳 Pagamento',[['Forma de pagamento',d.pagamento]]);
+    const msg=makeMessage(d);sendButton.href='https://wa.me/5511997981891?text='+encodeURIComponent(msg);sendButton.dataset.message=msg;
+    feedback.textContent='';review.showModal();
+  }
+  form.addEventListener('submit',e=>{e.preventDefault();if(validate())showReview()});
+  $('editButton').addEventListener('click',()=>review.close());
+  $('copyButton').addEventListener('click',async()=>{try{const text=sendButton.dataset.message;if(navigator.clipboard?.writeText)await navigator.clipboard.writeText(text);else{const t=document.createElement('textarea');t.value=text;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();const ok=document.execCommand('copy');t.remove();if(!ok)throw Error('Falha ao copiar')}feedback.textContent='Informações copiadas.'}catch(e){feedback.textContent='Seu navegador não permitiu copiar. Use o botão do WhatsApp.'}});
+  sendButton.addEventListener('click',()=>{feedback.textContent='No WhatsApp, confira e toque em Enviar. A mensagem não é enviada automaticamente.'});
+  deliveryChange();
+</script>
+</body>
+</html>
